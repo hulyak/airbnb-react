@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './Banner.css';
 import { Button } from '@material-ui/core';
-
+import { useHistory } from 'react-router-dom';
 import Search from '../Search/Search';
 
 function Banner() {
+  const history = useHistory();
   const [showSearch, setShowSearch] = useState(false);
 
   return (
@@ -13,10 +14,10 @@ function Banner() {
         {showSearch && <Search />}
 
         <Button
+          onClick={() => setShowSearch(!showSearch)}
           variant="outlined"
-          className="banner__searchButton"
-          onClick={() => setShowSearch()}>
-          Search Dates
+          className="banner__searchButton">
+          {showSearch ? 'Hide' : 'Search Dates'}
         </Button>
       </div>
       <div className="banner__info">
@@ -25,7 +26,9 @@ function Banner() {
           Settle in a new place. Explore nearby accommodations to live, work or
           just relax.
         </h5>
-        <Button variant="outlined">Explore the immediate surroundings </Button>
+        <Button variant="outlined" onClick={() => history.push('/search')}>
+          Explore the immediate surroundings{' '}
+        </Button>
       </div>
     </div>
   );
