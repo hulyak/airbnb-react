@@ -1,21 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import './Header.css';
-import SearchIcon from '@material-ui/icons/Search';
-import LanguageIcon from '@material-ui/icons/Language';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Avatar } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import UseAmadeus from '../../hooks/UseAmadeus';
+import React, { useState } from "react";
+import "./Header.css";
+import SearchIcon from "@material-ui/icons/Search";
+import LanguageIcon from "@material-ui/icons/Language";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Avatar } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [search, setSearch] = useState("");
-  
-  const {data, error, isLoading, setUrl} = UseAmadeus();
-  
+
   const handleSearch = (e) => {
     setSearch(e.target.value);
-  }
-
+  };
 
   return (
     <div className="header">
